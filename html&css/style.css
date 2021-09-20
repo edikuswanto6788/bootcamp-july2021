@@ -1,0 +1,80 @@
+.header {
+    height: 70px;
+    /* border: 1px solid #ff0000; */
+    /* background-color: #ff0000; */
+    display: flex;
+}
+
+.menu-container {
+    display: flex;
+}
+
+.logo {
+    background-image: url(data:image/png;base64,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);
+    width: 70px;
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.header .menu,
+.login {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    /* bisa untuk gris dan flexible */
+    align-items: center;
+}
+
+.header .menu:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.login {
+    width: max-content;
+    padding-right: 20px;
+}
+
+.button-login {
+    border: 1px solid green;
+    padding: 15px 40px;
+    border-radius: 30px;
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    background-color: grey;
+}
+
+.navbar .menu {
+    color: #ffff;
+    font-weight: bold;
+    padding: 10px 20px;
+
+}
+
+.navbar .menu:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: lightgray;
+    padding: 0 15px 15px;
+
+}
+
+.sidebar .menu {
+    font-size: 22px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.sidebar .submenu {
+    margin-bottom: 3px 15px;
+    cursor: pointer;
+}
