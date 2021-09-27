@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="template.js"></script>
+
+<head>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        .registerbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <div class="menu" data-menu="home">Home</div>
+
+        <div class="menu" data-menu="user">User List</div>
+        <div class="menu" data-menu="register">Register</div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <section data-section-content="user">ini tampilan userl ist
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Username</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Hobi</th>
+                            <th>Alamat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listUser">
+                        <tr>
+                            <td>1</td>
+                            <td>edi</td>
+                            <td>edi12</td>
+                            <td>laki-laki</td>
+                            <td>Ngegame</td>
+                            <td>jakarta</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section data-section-content="register">
+                <form action="" name="form1" onsubmit="onformSubmit()">
+                    <div class="container">
+                        <h1>Register</h1>
+                        <p>Please fill in this form to create an account.</p>
+                        <hr>
+
+                        <label for="nama"><b>Nama</b></label>
+                        <input type="text" placeholder="Enter Nama" name="nama" id="nama" required>
+                        <label for="userName"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="userName" id="userName" required>
+
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" placeholder="Enter password" name="password" id="password" required>
+
+                        <label for="cewe"><b>Jenis Kelamin</b></label>
+                        <input type="radio" name="jk" id="cowo" value="laki-laki">
+                        <label for="">Laki - Laki</label>
+                        <input type="radio" name="jk" id="cewe" value="perempuan">
+                        <label for="">Perempuan</label>
+                        <div style="margin-top: 10px;">
+                            <label for=" agama">Agama</label>
+                            <select name="agama" id="agama">
+                                <option value="islam">Islam</option>
+                                <option value="kristen">Kristern</option>
+                                <option value="hindu">Hindu</option>
+                                <option value="budha">Budha</option>
+                            </select>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <label for="cewe"><b>Pilih Hobi</b></label><br>
+                            <input type="checkbox" name="hobi1" id="baca" value="Membaca">
+                            <label for="baca">Membaca</label> <br>
+                            <input type="checkbox" name="hobi2" id="masak" value="Membaca">
+                            <label for="masak">Memasak</label> <br>
+                            <input type="checkbox" name="hobi3" id="musik" value="Membaca">
+                            <label for="musik">Mendengarkan Musik</label> <br>
+                            <input type="checkbox" name="hobi4" id="gambar" value="Membaca">
+                            <label for="gambar">Menggambar</label>
+                        </div> <br>
+                        <label for="alamat"><b>Alamat</b></label>
+                        <input type="text" placeholder="Enter alamat" name="alamat" id="alamat" required>
+
+                        <hr>
+                        <button type="submit" class=" registerbtn saveData">Register</button>
+                    </div>
+                    <div class="container signin">
+                        <p>Already have an account? <a href="#">Sign in</a>.</p>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
