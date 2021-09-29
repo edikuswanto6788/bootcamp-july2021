@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  <script defer src="template.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #id1 {
+      background-color: red;
+    }
+
+    .class1 {
+      background-color: blue;
+    }
+
+    [data-type] {
+      background-color: aqua;
+    }
+
+    [data-type="oke"] {
+      background-color: yellow;
+    }
+
+    .bgBlack {
+      background-color: black !important;
+      color: white !important;
+    }
+
+    a:link {
+      color: white;
+    }
+
+    .test {
+      display: none;
+      /* visibility: hidden; */
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: lightgray;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Add padding to containers */
+    .container {
+      padding: 16px;
+      background-color: white;
+    }
+
+    input[type=text],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=password],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=button] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=button]:hover {
+      background-color: #45a049;
+    }
+
+
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    .registerbtn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    .registerbtn:hover {
+      opacity: 1;
+    }
+
+    a {
+      color: dodgerblue;
+    }
+
+    .signin {
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+    #myInput {
+  background-image: url('logo-search.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+    #myTable {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    #myTable td, #myTable th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    #myTable tr:nth-child(even){
+      background-color: #f2f2f2;
+    }
+
+    #myTable th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+    .checkmark {
+  background-color: #eee;
+}
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="menu-container">
+
+    </div>
+  </div>
+  <div class="navbar" id="navbar">
+    <div class="menu" data-menu="home">Home</div>
+    <div class="menu" data-menu="user">User List</div>
+    <div class="menu" data-menu="register">Register</div>
+    <div class="menu" data-menu="login">Login</div>
+    <!-- <div class="menu" data-menu="edit">Edit</div> -->
+  </div>
+
+  <div class="content">
+    <section data-section-content="home">
+      <h1>Welcome to my APP</h1>
+    </section>
+    <section data-section-content="login">
+      <h1>Form Login</h1>
+     <form name="formLogin"><label for="user"><b>Username</b></label>
+          <input id="user" placeholder="Enter Username" name="user" type="text" />
+          <br />
+          <label for=" user"><b>Password</b></label>
+          <input id="pass" name="user" placeholder="Enter Password" type="password" />
+          <input type="button" class="registerbtn " login-submit="formLogin" value="Login"  />
+        </form> 
+        <div>
+          <center>
+          <label for="">I Have Not Account, Please</label>
+          <a href="" data-menu="register">Registration</a>
+        </center>
+        </div>
+        
+        </section>
+    <section data-section-content="edit">
+      <h3>Form Update</h3>
+      <div>
+        <form name="form1">
+          <label for="nama"><b>Name</b></label>
+          <input type="text" placeholder="Enter Nama" name="nama" id="nama" required>
+          <label for="username"><b>Username</b></label>
+          <input id="username" placeholder="Enter Username" name="username" type="text" />
+          <br />
+          <label for=" password"><b>Password</b></label>
+          <input id="password" name="password" placeholder="Enter Password" type="password" />
+          <br />
+          <label for=" gender"><b>Gender</b></label>
+          <input name="gender" type="radio" value="male" /> Male
+          <input name="gender" type="radio" value="female" /> Female
+          <br>
+          <div style="margin-top: 10px;">
+            <label for=" agama"><b>Agama</b></label>
+            <select name="agama" id="agama">
+              <option value="islam">Islam</option>
+              <option value="kristen">Kristern</option>
+              <option value="hindu">Hindu</option>
+              <option value="budha">Budha</option>
+            </select>
+          </div>
+        <div style="margin-top: 10px; " class="checkmark">
+          <label for=" hobby"><b>Choose Hobby</b></label>
+          <br>
+          <input type="checkbox" name="hobby1" id="hobby1" value="fishing"> <label for="">Fishing</label> <br>
+          <input type="checkbox" name="hobby2" id="hobby2" value="gamming"> <label for="">Gamming</label> <br>
+          <input type="checkbox" name="hobby3" id="hobby3" value="drawing"> <label for="">Drawing</label> <br>
+          <input type="checkbox" name="hobby4" id="hobby4" value="reading"> <label for="">Reading</label><br>
+          <input type="checkbox" name="hobby5" id="hobby5" value="traveling"> <label for="">Travelling</label>
+        </div>
+        <div style="margin-top: 10px;">
+          <label for="address"><b>Address</b></label>
+          <input type="text" placeholder="Enter Address" name="address" id="address" required>
+        </div>
+          <br />
+          <br />
+          <input type="button" class="registerbtn " update-submit="form" value="Update"  />
+        </form>
+    </section>
+    <section data-section-content="user">
+      <select name="state" id="maxRows" style="width: 100px;">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+      </select>
+      <div class="filter">
+        <a href="#category-1">category 1</a>
+        <a href="#category-2">category 2</a>
+        </div>
+      <table border="1" id="myTable" cellpadding="10px">
+        <thead>
+          <tr>
+            <th width="20px">No</th>
+            <th width="200px">Username</th>
+            <th width="10px">Gender</th>
+            <th>Hobby</th>
+            <th>Address</th>
+            <th>Agama</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="body">
+          <div id="item-wrapper">
+            <ul class="items">
+                <li class="category-1">item 1</li>
+                <li class="category-1">item 2</li>
+                <li class="category-1">item 3</li>
+                <li class="category-1">item 4</li>
+                <li class="category-1">item 5</li>
+                <li class="category-1">item 6</li>
+                <li class="category-2">item 7</li>
+                <li class="category-2">item 8</li>
+                <li class="category-2">item 9</li>
+                <li class="category-2">item 10</li>
+                <li class="category-2">item 11</li>
+                <li class="category-2">item 12</li>
+                <li class="category-1">item 13</li>
+                <li class="category-1">item 14</li>
+                <li class="category-2">item 15</li>
+            </ul>
+        </tbody>
+      </table>
+      <div class="ctrl-nav">
+        <a href="#">Previous</a><span id="pages"></span><a href="#">Next</a>
+        </div>
+    </section>
+
+    <section data-section-content="register">
+      <h3>Form Registration</h3>
+      <div>
+        <form name="form1">
+          <label for="nama"><b>Name</b></label>
+          <input type="text" placeholder="Enter Nama" name="nama" id="nama" required>
+          <label for="username"><b>Username</b></label>
+          <input id="username" placeholder="Enter Username" name="username" type="text" />
+          <br />
+          <label for=" password"><b>Password</b></label>
+          <input id="password" name="password" placeholder="Enter Password" type="password" />
+          <br />
+          <label for=" gender"><b>Gender</b></label>
+          <input name="gender" type="radio" value="male" /> Male
+          <input name="gender" type="radio" value="female" /> Female
+          <br>
+          <div style="margin-top: 10px;">
+            <label for=" agama"><b>Agama</b></label>
+            <select name="agama" id="agama">
+              <option value="islam">Islam</option>
+              <option value="kristen">Kristern</option>
+              <option value="hindu">Hindu</option>
+              <option value="budha">Budha</option>
+            </select>
+          </div>
+        <div style="margin-top: 10px; " class="checkmark">
+          <label for=" hobby"><b>Choose Hobby</b></label>
+          <br>
+          <input type="checkbox" name="hobby1" id="hobby1" value="fishing"> <label for="">Fishing</label> <br>
+          <input type="checkbox" name="hobby2" id="hobby2" value="gamming"> <label for="">Gamming</label> <br>
+          <input type="checkbox" name="hobby3" id="hobby3" value="drawing"> <label for="">Drawing</label> <br>
+          <input type="checkbox" name="hobby4" id="hobby4" value="reading"> <label for="">Reading</label><br>
+          <input type="checkbox" name="hobby5" id="hobby5" value="traveling"> <label for="">Travelling</label>
+        </div>
+        <div style="margin-top: 10px;">
+          <label for="address"><b>Address</b></label>
+          <input type="text" placeholder="Enter Address" name="address" id="address" required>
+        </div>
+          <br />
+          <br />
+          <input type="button" class="registerbtn " data-submit="form" value="Registration"  />
+        </form>
+    </section>
+  </div>
+  </div>
+</body>
+ <!-- External jQuery -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script> -->
+
+</html>
