@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import { Navbar,Nav,NavDropdown, Form, Button } from 'react-bootstrap';
-
+import { Container } from 'react-bootstrap';
+import "./menu.css"
 
 class Menu extends Component {
     constructor(props) {
@@ -9,16 +9,14 @@ class Menu extends Component {
     }
     render() {
         return (
-            // <div style={{
-            //     border: "1px solid red",
-            //     padding: "10px 20px",
-            //     borderRadius: 4
-            // }}>
-        <div>
+            <div
+                className="menu"
+                style={{ backgroundColor: this.props.color }}
+                onClick={this.props.fn}
+            > <Container>
                 {this.props.children}
+            </Container>
             </div>
-
-        
         );
     }
 }

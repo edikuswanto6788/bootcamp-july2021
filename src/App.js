@@ -7,13 +7,27 @@ import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menu: "home"
+    }
+  }
+
+  changePage = page => {
+    this.setState({
+      menu: page
+    })
+    
+  }
   render() {
 
-    return ( 
+    return (
+      
       <>
         {/* <Header /> */}
-        <NavbarComponent />
-        <Content />
+        <NavbarComponent goToPage={this.changePage} />
+        <Content menu={this.state.menu} goToPage={this.changePage} />
       </>
     );
   }
