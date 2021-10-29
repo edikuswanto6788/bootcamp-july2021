@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
-import Login from './Screens/Login';
+import { Login, Home } from './Screens';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state ={}
+    this.state = {
+      isLoggedIn: true
+    }
   }
+  setLogin = status => this.setState({ isLoggedIn: status })
   render() {
-   
-    return (
-      <Login/>
-    )
+    if (this.state.isLoggedIn)
+      return <Home username="admin" />
+
+    return <Login setLogin={this.setLogin} />
   }
 }
 

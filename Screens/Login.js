@@ -9,10 +9,23 @@ class Login extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        
+        //isKeyboardShown: false,
+        username: "",
+        password: "",
       }
     //  
-  }
+    }
+    buttonLoginPressed = () => {
+        const { username, password } = this.state
+        if (username === "admin" && password === "admin") {
+            Alert.alert("Information", "Login Success!!")
+            return this.props.setLogin(true)
+        }
+
+        return Alert.alert("Warning", "Invalid username/password!!")
+    }
+
+    componentDidMount() { }
   render() {
     const input = React.createRef();
     return (
@@ -21,8 +34,9 @@ class Login extends Component {
             <View style={styles.container}>
                 <Text style={styles.text1}>Welcome to My App</Text>
                 <Input ref={input}
-                    placeholder='Email Address'
-                    keyboardType='email-address' 
+                    placeholder='Type your Username'
+                    keyboardType='text'
+                    onChangeText={username => this.setState({ username })}
                     leftIcon={
                         <Icon
                             name="envelope-o"
@@ -33,9 +47,10 @@ class Login extends Component {
 
                 />
                 <Input ref={input}
-                    placeholder='Password'
-                    keyboardType="visible-password"
+                    placeholder='Type your Password'
+        
                     secureTextEntry={true}
+                    onChangeText={password => this.setState({ password })}
                     leftIcon={
                         <Icon
                             name="key"
@@ -46,31 +61,31 @@ class Login extends Component {
                 />
                 <View style={styles.btnlogin} >
                     
-               <SocialIcon
+            <SocialIcon
                 button
                 light
                 type='sign-in'
                 title="LOGIN"
                 backgroundColor='blue'
+                onPress={this.buttonLoginPressed}
                     />
-                     <Text style={styles.text2}>Don't Have an Account
-                     </Text>
-                     <SocialIcon
+                    <Text style={styles.text2}>Don't Have an Account
+                    </Text>
+                <SocialIcon
                 button
                 light
                 type='sign-in'
                 title="SIGN UP"
                 backgroundColor='blue'
                     />
-                   
                 </View>
                 
-         </View>
+        </View>
         </ImageBackground>
             
         
     )
-  }
+}
 }
 
 const styles = StyleSheet.create({
