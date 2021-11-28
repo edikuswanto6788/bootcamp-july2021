@@ -4,7 +4,7 @@ import { List } from '.';
 
 
 
-const Home = ({ username }) => {
+const Home = (props) => {
     // const { username } = props
 
     // const [statusLogin, setStatusLogin] = useState(false)
@@ -14,7 +14,7 @@ const Home = ({ username }) => {
 
     return (
         <View style={{ flex: 1 }}>
-            <List />
+            <List navigation={props.navigation} />
         </View>
     )
 }

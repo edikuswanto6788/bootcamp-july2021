@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, TextInput, TouchableOpacity,Alert } from 'react-native';
 import { Input, Button, SocialIcon } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import { connect } from 'react-redux';
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { loginHandler } from '../Redux/Actions/LoginAction'
 
 class Login extends Component {
   constructor(props) {
@@ -11,22 +12,27 @@ class Login extends Component {
       this.state = {
         //isKeyboardShown: false,
         username: "",
-        password: "",
+          password: "",
+          isErrorShown: false
       }
     //  
     }
     buttonLoginPressed = () => {
         const { username, password } = this.state
-        if (username === "admin" && password === "admin") {
-            Alert.alert("Information", "Login Success!!")
-            return this.props.setLogin(true)
-        }
+        // if (username === "admin" && password === "admin") {
+        //     Alert.alert("Information", "Login Success!!")
+            return this.props.doLogin({username})
+        // }
 
-        return Alert.alert("Warning", "Invalid username/password!!")
+        // return Alert.alert("Warning", "Invalid username/password!!")
     }
-
-    componentDidMount() { }
-  render() {
+    componentDidMount(prevProps,prevState) {
+        console.log(prevProps);
+        console.log(prevState);
+    }
+    render() {
+        if (this.props.loginMessage !== "" && !this.state.isErrorShown)
+        Alert.alert("Alert!", this.props.loginMessage)
     const input = React.createRef();
     return (
        <ImageBackground style={styles.img}
@@ -35,13 +41,13 @@ class Login extends Component {
                 <Text style={styles.text1}>Welcome to My App</Text>
                 <Input ref={input}
                     placeholder='Type your Username'
-                    keyboardType='text'
+                    // keyboardType='text'
                     onChangeText={username => this.setState({ username })}
                     leftIcon={
                         <Icon
-                            name="envelope-o"
+                            name="user"
                             size={24}
-                            color="block"
+                            color="black"
                         />
                     }
 
@@ -55,7 +61,7 @@ class Login extends Component {
                         <Icon
                             name="key"
                             size={24}
-                            color="block"
+                            color="black"
                         />
                     }
                 />
@@ -129,4 +135,8 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Login;
+const mapDispatchToProps = dispatch => ({
+    doLogin: dataLogin => dispatch({ type: "LOGIN_SUCCESS", payload: dataLogin })
+})
+
+export default connect(null, mapDispatchToProps)(Login);

@@ -24,7 +24,7 @@ class List extends Component {
 
             const responseTodos = await fetch(`https://jsonplaceholder.typicode.com/todos?_limit=${limit}&_start=${nextLoad}`)
             const respJson = await responseTodos.json()
-            console.log(respJson);
+            // console.log(respJson);
             this.setState(oldState => {
                 if (page == 1)
                     return { todos: respJson, loading: false }
@@ -42,7 +42,7 @@ class List extends Component {
     }
 
     triggerNextPage = () => {
-        console.log("triggerNextPage");
+        // console.log("triggerNextPage");
         this.setState(
             oldState => ({ page: oldState.page + 1 }),
             this.fetchData
@@ -50,13 +50,14 @@ class List extends Component {
     }
 
     componentDidMount() {
+        // console.log(this.props);
         this.fetchData()
     }
 
     renderItem = items => {
         const { item } = items
         return (
-            <ListItem bottomDivider onPress={() => Alert.alert("Warning", "Hi, " + item.title)}>
+            <ListItem bottomDivider onPress={() => this.props.navigation.navigate("Calendar")}>
                 <ListItem.Content>
                     <ListItem.Title>{item.title}</ListItem.Title>
                     <ListItem.Subtitle>{item.id}</ListItem.Subtitle>
